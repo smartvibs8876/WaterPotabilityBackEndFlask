@@ -8,6 +8,7 @@ Steps to run the project
 2. Navigate to the project
    cd WaterPotabilityBackEndFlask
 3. Install dependencies
-   pip install requirements.txt
+   pip install -r requirements.txt
 4. Run the script
    python script.py
+5. App will run on localhost port 2000. So hit localhost:2000 in browser
