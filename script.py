@@ -11,14 +11,14 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/predict',methods=['POST'])
 @cross_origin()
 def api_call():
-    API_KEY = "MpNZ7oHbK-90DbY_FBQQs2p7-kPNXgqRVo4nBG2itJjH"
+    API_KEY = "nSE3li1FC7v8IZ514DM0O1RtD7M8xAky6tO9Y0LEwxi1"
     token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={"apikey":
     API_KEY, "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
     mltoken = token_response.json()["access_token"]
     print(mltoken)
     header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + mltoken}
     payload_scoring = json.loads(bytes.decode(request.data))
-    response_scoring = requests.post('https://us-south.ml.cloud.ibm.com/ml/v4/deployments/44f494ed-fe58-40fa-8321-6f5028f23ed9/predictions?version=2021-05-01', json=payload_scoring,
+    response_scoring = requests.post('https://us-south.ml.cloud.ibm.com/ml/v4/deployments/42959627-c706-404a-939d-a413de03e335/predictions?version=2021-05-01', json=payload_scoring,
     headers={'Authorization': 'Bearer ' + mltoken})
     print("Scoring response")
     print(response_scoring.json())
